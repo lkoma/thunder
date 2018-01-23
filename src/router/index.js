@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
 import luck from '@/components/luck'
 
 Vue.use(Router)
@@ -11,7 +10,7 @@ export default new Router({
     {
       path: '/home',
       name: 'HelloWorld',
-      component: HelloWorld
+      component: () => import('@/components/HelloWorld')
     },
     {
       path: '/luck',
