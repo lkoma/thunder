@@ -11,6 +11,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const WebpackMonitor = require('webpack-monitor');
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
 const WebpackParallelUglifyPlugin = require('webpack-parallel-uglify-plugin');
+const PrerenderSpaPlugin = require('prerender-spa-plugin');
 const hash = require('../cache/deps.json').name.match(/deps\.([0-9a-f]+)\.js/)[1];
 
 const env = require('../config/prod.env');
@@ -68,6 +69,32 @@ const webpackConfig = merge(baseWebpackConfig, {
                 ignore: ['.*']
             }
         ]),
+        new PrerenderSpaPlugin(
+            path.join(__dirname, '../dist'),
+            ['/homapage']
+        ),
+        new HtmlWebpackPlugin({
+            filename: config.build.index,
+            template: 'index.html',
+            jsPath: './static/js/',
+            inject: true,
+            depsHash: hash,
+            chunks: ['common', 'app'],
+            title: 'magic',
+            minify: {
+                removeComments: true,
+                collapseWhitespace: true,
+                removeAttributeQuotes: true,
+                removeRedundantAttributes: true,
+                useShortDoctype: true,
+                removeEmptyAttributes: true,
+                removeStyleLinkTypeAttributes: true,
+                keepClosingSlash: true,
+                minifyJS: true,
+                minifyCSS: true,
+                minifyURLs: true
+            }
+        }),
         // keep module.id stable when vender modules does not change
         new webpack.HashedModuleIdsPlugin(),
         new webpack.optimize.OccurrenceOrderPlugin(true),
@@ -76,30 +103,6 @@ const webpackConfig = merge(baseWebpackConfig, {
         // enable scope hoisting
         new webpack.optimize.ModuleConcatenationPlugin()
     ]
-});
-Object.keys(utils.entries).forEach(name => {
-    webpackConfig.plugins.push(new HtmlWebpackPlugin({
-        filename: process.env.NODE_ENV === 'testing' ? 'index.html' : config.build.html(name),
-        template: 'index.html',
-        jsPath: './static/js/',
-        inject: true,
-        depsHash: hash,
-        chunks: ['common', name],
-        title: utils.entries[name].data.title || 'magic',
-        minify: {
-            removeComments: true,
-            collapseWhitespace: true,
-            removeAttributeQuotes: true,
-            removeRedundantAttributes: true,
-            useShortDoctype: true,
-            removeEmptyAttributes: true,
-            removeStyleLinkTypeAttributes: true,
-            keepClosingSlash: true,
-            minifyJS: true,
-            minifyCSS: true,
-            minifyURLs: true
-        }
-    }));
 });
 
 if (config.build.productionGzip) {

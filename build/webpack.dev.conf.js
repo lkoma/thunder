@@ -37,6 +37,16 @@ module.exports = merge(
             new webpack.DefinePlugin({
                 'process.env': config.dev.env
             }),
+            new HtmlWebpackPlugin({
+                filename: 'idnex.html',
+                template: 'index.html',
+                jsPath: '/magic/',
+                inject: true,
+                chunks: [name],
+                depsHash: hash,
+                hash: false,
+                title: 'magic'
+            }),
             new webpack.NamedModulesPlugin(),
             new CaseSensitivePathsPlugin(),
             new WatchMissingNodeModulesPlugin(resolve('node_modules')),
@@ -44,20 +54,7 @@ module.exports = merge(
             new webpack.NoEmitOnErrorsPlugin(),
             new FriendlyErrorsPlugin(),
             new DashboardPlugin(),
-            new FaviconsPlugin('./src/common/assets/img/favicon.jpg')
-        ].concat(Object.keys(utils.entries).map(name =>
-        // generate dist index.html with correct asset hash for caching.
-        // you can customize output by editing /index.html
-        // see https://github.com/ampedandwired/html-webpack-plugin
-            (new HtmlWebpackPlugin({
-                filename: `${name}.html`,
-                template: 'index.html',
-                jsPath: '/magic/',
-                inject: true,
-                chunks: [name],
-                depsHash: hash,
-                hash: false,
-                title: utils.entries[name].data.title || 'magic'
-            }))))
+            new FaviconsPlugin('./src/assets/img/favicon.jpg')
+        ]
     }
 );

@@ -20,8 +20,8 @@
 
 <script>
 import tail from 'lodash/tail';
-import config from 'homepage/config';
-import bridge from 'common/bridge';
+import config from 'src/config';
+import bridge from 'src/bridge';
 
 export default {
     data() {

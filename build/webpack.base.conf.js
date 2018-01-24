@@ -10,10 +10,9 @@ const imagePath = process.env.DOCUMENT ? undefined : '/magic/';
 
 module.exports = {
     cache: true,
-    entry: Object.keys(utils.entries).reduce((r, key) => {
-        r[key] = utils.entries[key].path;
-        return r;
-    }, {}),
+    entry: {
+        app: './src/main.js'
+    },
     output: {
         path: config.build.assetsRoot,
         filename: '[name].js',
@@ -30,10 +29,9 @@ module.exports = {
         alias: {
             vue$: 'vue/dist/vue.runtime.esm.js',
             src: resolve('src'),
-            common: resolve('src/common'),
             enum: 'easy-enum.js',
             store: 'store/dist/store.modern',
-            log: 'common/utils/log'
+            log: 'src/utils/log'
         }
     },
     module: {

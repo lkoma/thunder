@@ -1,7 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import storeCache from 'common/utils/storeCache';
-import { name } from '../module.json';
+import storeCache from '../utils/storeCache';
 
 Vue.use(Vuex);
 
@@ -11,7 +10,7 @@ export default new Vuex.Store({
     modules: {
     },
     strict: debug,
-    plugins: [storeCache(sessionStorage, name)],
+    plugins: [storeCache(sessionStorage, 'thunder')],
     mutations: {
     }
 });
