@@ -1,12 +1,33 @@
 {
-  "presets": [
-    ["env", {
-      "modules": false,
-      "targets": {
-        "browsers": ["> 1%", "last 2 versions", "not ie <= 8"]
-      }
-    }],
-    "stage-2"
-  ],
-  "plugins": ["transform-vue-jsx", "transform-runtime"]
+    "presets": [
+        ["@babel/preset-env", {
+            "modules": false,
+            "target": {
+                "browsers": [
+                    "Android >= 4",
+                    "iOS > 7",
+                    "> 5%"
+                ]
+            }
+        }],
+        "@babel/preset-stage-0"
+    ],
+    "plugins": [
+        "@babel/plugin-syntax-optional-chaining",
+        "@babel/plugin-transform-runtime"
+    ],
+    "comments": false,
+    "env": {
+        "node": {
+            "presets": [
+                [
+                    "@babel/preset-env",
+                    {
+                        "modules": "commonjs"
+                    }
+                ],
+                "@babel/preset-stage-0"
+            ]
+        }
+    }
 }
