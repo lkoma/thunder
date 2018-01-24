@@ -4,7 +4,7 @@ process.env.NODE_ENV = 'production';
 
 const ora = require('ora');
 const rm = require('rimraf');
-const sh = require('shelljs');
+// const sh = require('shelljs');
 const path = require('path');
 const chalk = require('chalk');
 const webpack = require('webpack');
@@ -24,7 +24,7 @@ rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
         if (error) {
             throw error;
         }
-        sh.cp(require('../cache/deps.json').name, './dist/static/js/');
+        // sh.cp(require('../cache/deps.json').name, './dist/static/js/');
         process.stdout.write(`${stats.toString({
             colors: true,
             modules: false,

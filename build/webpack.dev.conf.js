@@ -42,7 +42,7 @@ module.exports = merge(
                 template: 'index.html',
                 jsPath: '/magic/',
                 inject: true,
-                chunks: [name],
+                chunks: ['app'],
                 depsHash: hash,
                 hash: false,
                 title: 'magic'

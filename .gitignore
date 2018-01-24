@@ -14,6 +14,7 @@ yarn-error.log
 cache/*.js
 cache/*.json
 cache/*.info
+static/js/dep*.js
 .cache
 document/_site
 module.config.json

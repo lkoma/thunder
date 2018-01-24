@@ -19,6 +19,7 @@ if (sh.test('-f', './cache/md5.info')
 if (newMd5 !== oldMd5) {
     const spinner = ora('Prebuilding dll package...');
     glob.sync('./cache/dep*.js').forEach(file => sh.rm(file));
+    glob.sync('./static/js/dep*.js').forEach(file => sh.rm(file));
     spinner.start();
     webpack(webpackConfig, error => {
         spinner.stop();
@@ -26,7 +27,7 @@ if (newMd5 !== oldMd5) {
             throw error;
         }
         else {
-            glob.sync('./cache/deps.*.js').forEach(file => sh.echo(`{"name": "${file}"}`).to('./cache/deps.json'));
+            glob.sync('./static/js/deps.*.js').forEach(file => sh.echo(`{"name": "${file}"}`).to('./cache/deps.json'));
             console.log(chalk.green('Dll package build complete.\n'));
         }
     });

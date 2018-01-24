@@ -7,9 +7,9 @@ export default new Router({
     mode: 'history',
     routes: [
         {
-            path: '/homapage',
-            name: 'homapage',
-            component: () => import('./views/homapage')
+            path: '/homepage',
+            name: 'homepage',
+            component: () => import('../views/homepage')
         }
     ]
 });

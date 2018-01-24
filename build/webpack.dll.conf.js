@@ -28,7 +28,7 @@ const webpackConfig = merge(baseConfig, {
         })
     },
     output: {
-        path: path.join(__dirname, '..', 'cache/'),
+        path: path.join(__dirname, '..', 'static/js/'),
         filename: 'deps.[chunkhash:16].js',
         library: '[name]'
     },
