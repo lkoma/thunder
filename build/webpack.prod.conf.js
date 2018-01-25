@@ -27,8 +27,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     devtool: false,
     output: {
         path: config.build.assetsRoot,
-        filename: utils.assetsPath('js/[name].[chunkhash:16].js'),
-        chunkFilename: utils.assetsPath('js/[id].js')
+        filename: utils.assetsPath('js/[name].[chunkhash:16].js')
     },
     plugins: [
         new webpack.DllReferencePlugin({

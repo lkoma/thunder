@@ -106,6 +106,12 @@ app.use(devMiddleware);
 // serve pure static assets
 const staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory);
 app.use(staticPath, express.static('./static'));
+// app.use((req, rep, next) => {
+//     next();
+//     if (req.code === 404) {
+//         req.
+//     }
+// });
 
 let innerResolve;
 let innerReject;
