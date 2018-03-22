@@ -7,7 +7,7 @@ module.exports = {
         port: 8080,
         autoOpenBrowser: true,
         assetsSubDirectory: 'static',
-        assetsPublicPath: '/magic/',
+        assetsPublicPath: '/thunder/',
         cssSourceMap: false,
         proxyTable: {},
         errorOverlay: true,

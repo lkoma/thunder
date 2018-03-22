@@ -136,7 +136,7 @@ devMiddleware.waitUntilValid(() => {
         const uri = `http://localhost:${port}`;
         console.log(`> Listening at ${uri}\n`);
         if (autoOpenBrowser && process.env.NODE_ENV !== 'testing') {
-            opn(`${uri}/magic/homepage/`);
+            opn(`${uri}/thunder/homepage/`);
         }
         server = app.listen(port);
         ['SIGINT', 'SIGTERM'].forEach(sig => {

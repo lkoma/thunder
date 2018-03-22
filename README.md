@@ -1,4 +1,4 @@
-# magic
+# thunder
 
 > A Vue+Webpack+预渲染 project architecture
 

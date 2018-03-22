@@ -79,7 +79,7 @@ const webpackConfig = merge(baseWebpackConfig, {
             inject: true,
             depsHash: hash,
             chunks: ['common', 'app'],
-            title: 'magic',
+            title: 'thunder',
             minify: {
                 removeComments: true,
                 collapseWhitespace: true,

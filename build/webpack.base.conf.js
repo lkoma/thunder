@@ -6,7 +6,7 @@ const vueLoaderConfig = require('./vue-loader.conf');
 function resolve(dir) {
     return path.join(__dirname, '..', dir);
 }
-const imagePath = process.env.DOCUMENT ? undefined : '/magic/';
+const imagePath = process.env.DOCUMENT ? undefined : '/thunder/';
 
 module.exports = {
     cache: true,

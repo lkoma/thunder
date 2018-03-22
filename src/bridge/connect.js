@@ -3,6 +3,6 @@ export default url => {
         return null;
     }
     // for WKWebView
-    window.webkit.messageHandlers.MagicApp.postMessage({ body: url });
+    window.webkit.messageHandlers.ThunderApp.postMessage({ body: url });
     return null;
 };

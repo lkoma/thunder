@@ -40,12 +40,12 @@ module.exports = merge(
             new HtmlWebpackPlugin({
                 filename: 'idnex.html',
                 template: 'index.html',
-                jsPath: '/magic/',
+                jsPath: '/thunder/',
                 inject: true,
                 chunks: ['app'],
                 depsHash: hash,
                 hash: false,
-                title: 'magic'
+                title: 'thunder'
             }),
             new webpack.NamedModulesPlugin(),
             new CaseSensitivePathsPlugin(),
