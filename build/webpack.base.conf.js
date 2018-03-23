@@ -11,7 +11,7 @@ const imagePath = process.env.DOCUMENT ? undefined : '/thunder/';
 module.exports = {
     cache: true,
     entry: {
-        app: './src/main.js'
+        app: 'src/main.js'
     },
     output: {
         path: config.build.assetsRoot,
